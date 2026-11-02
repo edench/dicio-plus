@@ -33,11 +33,9 @@ object ReminderInfo : SkillInfo("reminder") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.Notifications)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Reminder[ctx.sentencesLanguage] != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Reminder[ctx.sentencesLanguage] != null)) return null
         return ReminderSkill(ReminderInfo, Sentences.Reminder[ctx.sentencesLanguage]!!)
     }
 

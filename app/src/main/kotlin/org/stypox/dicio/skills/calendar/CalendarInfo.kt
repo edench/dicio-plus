@@ -24,13 +24,11 @@ object CalendarInfo : SkillInfo("calendar") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.Event)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Calendar[ctx.sentencesLanguage] != null
-    }
 
     override val neededPermissions: List<Permission> = listOf(PERMISSION_READ_CALENDAR)
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Calendar[ctx.sentencesLanguage] != null)) return null
         return CalendarSkill(CalendarInfo, Sentences.Calendar[ctx.sentencesLanguage]!!)
     }
 }

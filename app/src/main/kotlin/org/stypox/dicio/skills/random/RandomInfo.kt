@@ -22,11 +22,9 @@ object RandomInfo : SkillInfo("random") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.Casino)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Random[ctx.sentencesLanguage] != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Random[ctx.sentencesLanguage] != null)) return null
         return RandomSkill(RandomInfo, Sentences.Random[ctx.sentencesLanguage]!!)
     }
 }

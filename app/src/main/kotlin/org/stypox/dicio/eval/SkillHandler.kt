@@ -77,12 +77,12 @@ class SkillHandler @Inject constructor(
         AIQueryInfo,
         UnitConversionInfo,
         CryptoPriceInfo,
+        LocatePhoneInfo,
     )
 
     // Hidden skills that are always enabled but don't appear in menus
     private val hiddenSkillInfoList = listOf(
         CancelInfo,
-        LocatePhoneInfo
     )
 
     private val fallbackSkillInfoList = listOf(
@@ -121,13 +121,9 @@ class SkillHandler @Inject constructor(
 
                     _enabledSkillsInfo.value = newEnabledSkillsInfo.map { (info, _skill) -> info }
                     _skillRanker.value = SkillRanker(
-                        newEnabledSkillsInfo.map { (_info, skill) -> skill },
+                        newEnabledSkillsInfo.map { (_info, skill) -> skill }
+                            + hiddenSkillInfoList.mapNotNull { it.build(skillContext) },
                         fallbackSkillInfo.build(skillContext)!!,
-                        newEnabledSkillsInfo.map(::buildSkillFromInfo)
-                            + hiddenSkillInfoList
-                                .filter { it.isAvailable(skillContext) }
-                                .map(::buildSkillFromInfo),
-                        buildSkillFromInfo(fallbackSkillInfoList[0]),
                     )
                 }
         }

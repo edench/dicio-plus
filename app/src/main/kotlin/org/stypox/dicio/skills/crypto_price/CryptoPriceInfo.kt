@@ -22,10 +22,8 @@ data object CryptoPriceInfo : SkillInfo("crypto_price") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.CurrencyBitcoin)
 
-    override fun isAvailable(ctx: SkillContext): Boolean =
-        Sentences.CryptoPrice[ctx.sentencesLanguage] != null
-
-    override fun build(ctx: SkillContext): Skill<*> =
+    override fun build(ctx: SkillContext): Skill<*>? =
+        if (!(Sentences.CryptoPrice[ctx.sentencesLanguage] != null)) null else
         CryptoPriceSkill(
             correspondingSkillInfo = this,
             data = Sentences.CryptoPrice[ctx.sentencesLanguage]!!

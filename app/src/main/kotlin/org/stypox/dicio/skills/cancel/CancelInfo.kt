@@ -22,11 +22,9 @@ object CancelInfo : SkillInfo("cancel") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.Cancel)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Cancel[ctx.sentencesLanguage] != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Cancel[ctx.sentencesLanguage] != null)) return null
         return CancelSkill(CancelInfo, Sentences.Cancel[ctx.sentencesLanguage]!!)
     }
 }

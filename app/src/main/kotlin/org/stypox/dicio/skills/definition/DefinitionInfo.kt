@@ -22,11 +22,9 @@ object DefinitionInfo : SkillInfo("definition") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.MenuBook)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Definition[ctx.sentencesLanguage] != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Definition[ctx.sentencesLanguage] != null)) return null
         return DefinitionSkill(DefinitionInfo, Sentences.Definition[ctx.sentencesLanguage]!!)
     }
 }

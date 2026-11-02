@@ -28,12 +28,9 @@ object SmsInfo : SkillInfo("sms") {
     override val neededPermissions: List<Permission>
         = listOf(PERMISSION_READ_CONTACTS, PERMISSION_SEND_SMS)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.Sms[ctx.sentencesLanguage] != null &&
-                Sentences.UtilYesNo[ctx.sentencesLanguage] != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.Sms[ctx.sentencesLanguage] != null && Sentences.UtilYesNo[ctx.sentencesLanguage] != null)) return null
         return SmsSkill(SmsInfo, Sentences.Sms[ctx.sentencesLanguage]!!)
     }
 }

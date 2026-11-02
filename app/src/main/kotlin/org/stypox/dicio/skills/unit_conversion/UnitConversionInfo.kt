@@ -22,12 +22,9 @@ object UnitConversionInfo : SkillInfo("unit_conversion") {
     override fun icon() =
         rememberVectorPainter(Icons.Default.SwapHoriz)
 
-    override fun isAvailable(ctx: SkillContext): Boolean {
-        return Sentences.UnitConversion[ctx.sentencesLanguage] != null &&
-                ctx.parserFormatter != null
-    }
 
-    override fun build(ctx: SkillContext): Skill<*> {
+    override fun build(ctx: SkillContext): Skill<*>? {
+        if (!(Sentences.UnitConversion[ctx.sentencesLanguage] != null && ctx.parserFormatter != null)) return null
         return UnitConversionSkill(
             UnitConversionInfo,
             Sentences.UnitConversion[ctx.sentencesLanguage]!!
