@@ -80,7 +80,7 @@ class MediaSkill(correspondingSkillInfo: SkillInfo, data: StandardRecognizerData
 
         return ctx.parserFormatter!!
             .extractNumber(input)
-            .mixedWithText
+            .parseMixedWithText()
             .asSequence()
             .filterIsInstance<org.dicio.numbers.unit.Number>()
             .filter { it.isInteger }

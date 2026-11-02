@@ -18,7 +18,7 @@ class RandomSkill(
 
     private fun extractNumber(ctx: SkillContext, text: String?): Int? {
         return text?.let {
-            ctx.parserFormatter?.extractNumber(it)?.mixedWithText
+            ctx.parserFormatter?.extractNumber(it)?.parseMixedWithText()
                 ?.filterIsInstance<Number>()
                 ?.firstOrNull()
                 ?.integerValue()

@@ -42,7 +42,7 @@ class ReminderSkill(
         var dateTime: LocalDateTime? = null
 
         if (parserFormatter != null) {
-            val parts = parserFormatter.extractDateTime(rawTask).mixedWithText
+            val parts = parserFormatter.extractDateTime(rawTask).parseMixedWithText()
             val textParts = StringBuilder()
             for (part in parts) {
                 if (part is LocalDateTime) {

@@ -48,7 +48,7 @@ class UnitConversionSkill(
                 
                 // Find the number in the mixed list
                 var value: Double? = null
-                val mixedList = parsed.mixedWithText
+                val mixedList = parsed.parseMixedWithText()
                 for (item in mixedList) {
                     if (item is Number) {
                         value = if (item.isDecimal) {

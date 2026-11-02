@@ -21,7 +21,7 @@ class SmsContactChooserIndex internal constructor(
         val index = ctx.parserFormatter!!
             .extractNumber(input)
             .preferOrdinal(true)
-            .mixedWithText
+            .parseMixedWithText()
             .asSequence()
             .filter { obj -> (obj as? Number)?.isInteger == true }
             .map { obj -> (obj as Number).integerValue().toInt() }
