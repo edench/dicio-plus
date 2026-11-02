@@ -30,6 +30,10 @@ val PERMISSION_SEND_SMS = Permission.NormalPermission(
     name = R.string.perm_send_sms,
     id = Manifest.permission.SEND_SMS,
 )
+val PERMISSION_READ_CALENDAR = Permission.NormalPermission(
+    name = R.string.perm_read_calendar,
+    id = Manifest.permission.READ_CALENDAR,
+)
 
 val PERMISSION_NOTIFICATION_LISTENER = Permission.SecurePermission(
     name = R.string.perm_notification_listener,
