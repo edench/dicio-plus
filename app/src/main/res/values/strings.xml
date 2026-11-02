@@ -296,7 +296,7 @@
     <string name="skill_sentence_example_reminder">Remind me to buy milk tomorrow at 3pm</string>
     <string name="skill_reminder_created">Task created: %1$s</string>
     <string name="skill_reminder_created_with_date">Task created: %1$s, due %2$s</string>
-    <string name="skill_reminder_no_task">I didn\'t catch what you want to be reminded about</string>
+    <string name="skill_reminder_no_task">I did not catch what you want to be reminded about</string>
     <string name="skill_reminder_tasks_not_installed">Tasks.org is not installed. You need it to create reminders.</string>
     <string name="skill_reminder_install_tasks">Install Tasks.org</string>
     <string name="pref_reminder_default_priority">Default priority</string>
@@ -404,7 +404,7 @@
     <string name="skill_flight_airborne">Airborne at %1$d feet, %2$d knots.</string>
     <string name="skill_flight_on_ground">It is on the ground.</string>
     <string name="skill_flight_not_tracked">It is not being tracked right now.</string>
-    <string name="skill_flight_not_understood">I didn't catch a flight number in %1$s</string>
-    <string name="skill_flight_not_found">I couldn't find flight %1$s</string>
+    <string name="skill_flight_not_understood">I did not catch a flight number in %1$s</string>
+    <string name="skill_flight_not_found">I could not find flight %1$s</string>
     <string name="skill_flight_network_error">Could not reach the flight data service</string>
 </resources>
