@@ -47,6 +47,7 @@ Currently Dicio answers questions about:
 - **ai query**: talk to an LLM and ask it questions. optionally, send unknown queries to AI to be answered. - _Ask AI what is the meaning of life?_ <sup>Requires your own OpenAI compatible provider and API keys</sup>
 - **unit conversion**: convert currencies, distances, volumes, mass, and more - _Convert 5 liters to gallons_
 - **cryptocurrency prices**: get the latest price of Bitcoin, Ethereum, Cardano, and more - _What is the price of Bitcoin?_
+- **definitions**: get word definitions - _Define serendipity_
 
 ## Speech to text
 
