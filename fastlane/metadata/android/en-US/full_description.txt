@@ -18,6 +18,8 @@ Dicio answers questions about:
 <li><b>notifications</b>: reads all notifications currently in the status bar - <i>What are my notifications?</i></li>
 <li><b>flashlight</b>: turn on/off the phone's flashlight - <i>Turn on the light</i></li>
 <li><b>ai query</b>: talk to an LLM and ask it questions. optionally, send unknown queries to AI to be answered. - <i>Ask AI what is the meaning of life?</i></li>
+<li><b>unit conversion</b>: convert currencies, distances, volumes, mass, and more - <i>Convert 5 liters to gallons</i></li>
+<li><b>cryptocurrency prices</b>: get the latest price of Bitcoin, Ethereum, Cardano, and more - <i>What is the price of Bitcoin?</i></li>
 </ul>
 
 Dicio can receive input through a text box or through <a href="https://github.com/alphacep/vosk-api/">Vosk</a> <i>speech to text</i>, and can talk using toasts or the Android <i>speech synthesis</i> engine. <b>Interactive graphical output</b> is provided by skills when they answer a question.
