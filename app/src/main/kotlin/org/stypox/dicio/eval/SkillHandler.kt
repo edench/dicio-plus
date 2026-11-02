@@ -43,6 +43,7 @@ import org.stypox.dicio.skills.aiquery.AIQueryInfo
 import org.stypox.dicio.skills.unit_conversion.UnitConversionInfo
 import org.stypox.dicio.skills.crypto_price.CryptoPriceInfo
 import org.stypox.dicio.skills.locate_phone.LocatePhoneInfo
+import org.stypox.dicio.skills.flight.FlightInfo
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -78,6 +79,7 @@ class SkillHandler @Inject constructor(
         UnitConversionInfo,
         CryptoPriceInfo,
         LocatePhoneInfo,
+        FlightInfo,
     )
 
     // Hidden skills that are always enabled but don't appear in menus

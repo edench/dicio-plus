@@ -398,4 +398,13 @@
     <string name="skill_random_invalid_range">Invalid range, please specify valid numbers</string>
     <string name="skill_random_heads">heads</string>
     <string name="skill_random_tails">tails</string>
+    <string name="skill_name_flight">Flight status</string>
+    <string name="skill_sentence_example_flight">Where is flight UA 123?</string>
+    <string name="skill_flight_route">%1$s from %2$s to %3$s.</string>
+    <string name="skill_flight_airborne">Airborne at %1$d feet, %2$d knots.</string>
+    <string name="skill_flight_on_ground">It is on the ground.</string>
+    <string name="skill_flight_not_tracked">It is not being tracked right now.</string>
+    <string name="skill_flight_not_understood">I didn't catch a flight number in %1$s</string>
+    <string name="skill_flight_not_found">I couldn't find flight %1$s</string>
+    <string name="skill_flight_network_error">Could not reach the flight data service</string>
 </resources>

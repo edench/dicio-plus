@@ -235,3 +235,11 @@ skills:
             type: string
           - id: max
             type: string
+
+  - id: flight
+    specificity: high
+    sentences:
+      - id: status
+        captures:
+          - id: flight
+            type: string

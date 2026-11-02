@@ -1,0 +1,6 @@
+status:
+  - flight .flight.
+  - flight .flight. status
+  - (where is|track|find) flight .flight.
+  - (what is|what s|whats) the? status (of|for) flight? .flight.
+  - flight status (of|for)? .flight.

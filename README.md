@@ -44,6 +44,7 @@ Currently Dicio answers questions about:
 - **reminders**: create tasks in **Tasks.org** via voice - _Remind me to buy milk_
 - **wake word control**: turn on/off the wakeword - _Stop listening_
 - **notifications**: reads all notifications currently in the status bar - _What are my notifications?_
+- **flight** (Dicio+): route and live position of a flight, from adsbdb.com and adsb.lol (no key) - _Where is flight UA 123?_
 - **flashlight**: turn on/off the phone flashlight - _Turn on the flashlight_
 - **ai query**: talk to an LLM and ask it questions. optionally, send unknown queries to AI to be answered. - _Ask AI what is the meaning of life?_ <sup>Requires your own OpenAI compatible provider and API keys</sup>
 - **unit conversion**: convert currencies, distances, volumes, mass, and more - _Convert 5 liters to gallons_

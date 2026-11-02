@@ -25,6 +25,8 @@ jobs:
             echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.p12"
             echo "DP_KEYSTORE=$RUNNER_TEMP/release.p12" >> "$GITHUB_ENV"
           fi
+      - name: Flight skill unit tests
+        run: ./gradlew :app:testDebugUnitTest --tests "org.stypox.dicio.skills.flight.*" --no-daemon
       - name: Build release APK
         env:
           DP_KEYSTORE_PASSWORD: ${{ secrets.DP_KEYSTORE_PASSWORD }}
