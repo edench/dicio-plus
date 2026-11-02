@@ -43,6 +43,7 @@ Currently Dicio answers questions about:
 - **wake word control**: turn on/off the wakeword - _Stop listening_
 - **notifications**: reads all notifications currently in the status bar - _What are my notifications?_
 - **flashlight**: turn on/off the phone flashlight - _Turn on the flashlight_
+- **ai query**: talk to an LLM and ask it questions. optionally, send unknown queries to AI to be answered. - _Ask AI what is the meaning of life?_ <sup>Requires your own OpenAI compatible provider and API keys</sup>
 
 ## Speech to text
 

@@ -16,6 +16,7 @@ import org.stypox.dicio.di.SkillContextImpl
 import org.stypox.dicio.di.SkillContextInternal
 import org.stypox.dicio.settings.datastore.UserSettings
 import org.stypox.dicio.settings.datastore.UserSettingsModule
+import org.stypox.dicio.settings.datastore.FallbackSkill
 import org.stypox.dicio.skills.calculator.CalculatorInfo
 import org.stypox.dicio.skills.current_time.CurrentTimeInfo
 import org.stypox.dicio.skills.fallback.text.TextFallbackInfo
@@ -32,6 +33,7 @@ import org.stypox.dicio.skills.translation.TranslationInfo
 import org.stypox.dicio.skills.weather.WeatherInfo
 import org.stypox.dicio.skills.joke.JokeInfo
 import org.stypox.dicio.skills.flashlight.FlashlightInfo
+import org.stypox.dicio.skills.aiquery.AIQueryInfo
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -58,10 +60,12 @@ class SkillHandler @Inject constructor(
         TranslationInfo,
         NotifyInfo,
         FlashlightInfo,
+        AIQueryInfo,
     )
 
     private val fallbackSkillInfoList = listOf(
         TextFallbackInfo,
+        AIQueryInfo,
     )
 
     private val scope = CoroutineScope(Dispatchers.Default)
@@ -79,19 +83,24 @@ class SkillHandler @Inject constructor(
     init {
         scope.launch {
             localeManager.locale
-                .combine(dataStore.data) { locale, data -> Pair(locale, data.enabledSkillsMap) }
+                .combine(dataStore.data) { locale, data -> Triple(locale, data.enabledSkillsMap, data.fallbackSkill) }
                 .distinctUntilChanged()
-                .collectLatest { (_, enabledSkills) ->
+                .collectLatest { (_, enabledSkills, fallbackSkill) ->
                     // locale is not used here, because the skills directly use the sections locale
 
                     val newEnabledSkillsInfo = allSkillInfoList
                         .filter { enabledSkills.getOrDefault(it.id, true) }
                         .mapNotNull { info -> info.build(skillContext)?.let { skill -> Pair(info, skill) } }
 
+                    val fallbackSkillInfo = when (fallbackSkill) {
+                        FallbackSkill.FALLBACK_SKILL_AIQUERY -> AIQueryInfo
+                        else -> TextFallbackInfo // default to text fallback if unset
+                    }
+
                     _enabledSkillsInfo.value = newEnabledSkillsInfo.map { (info, _skill) -> info }
                     _skillRanker.value = SkillRanker(
                         newEnabledSkillsInfo.map { (_info, skill) -> skill },
-                        fallbackSkillInfoList[0].build(skillContext)!!,
+                        fallbackSkillInfo.build(skillContext)!!,
                     )
                 }
         }
