@@ -159,3 +159,12 @@ skills:
         captures:
           - id: crypto
             type: string
+  - id: sms
+    specificity: low
+    sentences:
+      - id: send
+        captures:
+          - id: who
+            type: string
+          - id: what
+            type: string
