@@ -30,17 +30,32 @@ android {
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "org.stypox.dicio"
+        // Dicio+ (personal build with extra skills): own id, so it installs next to F-Droid Dicio
+        applicationId = "org.stypox.dicio.plus"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 19
-        versionName = "4.2"
+        versionName = "4.2-plus.1"
         testInstrumentationRunner = "org.stypox.dicio.CustomTestRunner"
 
         vectorDrawables.useSupportLibrary = true
 
         ndk {
-            abiFilters += arrayOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+            abiFilters += arrayOf("arm64-v8a") // Pixels only: keeps the APK small
+        }
+    }
+
+    signingConfigs {
+        // Release key: CI writes it from the DP_KEYSTORE_B64 secret (see .github/workflows/dicio-plus.yml).
+        val ks = System.getenv("DP_KEYSTORE")
+        if (ks != null && file(ks).exists()) {
+            create("release") {
+                storeFile = file(ks)
+                storeType = "pkcs12"
+                storePassword = System.getenv("DP_KEYSTORE_PASSWORD")
+                keyAlias = "dicioplus"
+                keyPassword = System.getenv("DP_KEYSTORE_PASSWORD")
+            }
         }
     }
 
@@ -58,6 +73,8 @@ android {
             }
         }
         release {
+            resValue("string", "app_name", "Dicio+")
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }

@@ -1,0 +1,43 @@
+# Builds Dicio+ (Dicio with extra skills) on GitHub's servers, so the Android SDK never touches the PC or tether.
+# Get the APK: repo -> Actions -> latest "Build Dicio+" run -> Artifacts -> dicio-plus-apk
+# (release.ps1 in C:\CPROJECTS\voice-assistant downloads it and publishes it for Obtainium).
+name: Build Dicio+
+on:
+  push:
+    branches: [plus]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+      # Same release key on every build, so each APK installs over the last one. Stored as repo secrets.
+      - name: Restore signing key
+        env:
+          KEYSTORE_B64: ${{ secrets.DP_KEYSTORE_B64 }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.p12"
+            echo "DP_KEYSTORE=$RUNNER_TEMP/release.p12" >> "$GITHUB_ENV"
+          fi
+      - name: Build release APK
+        env:
+          DP_KEYSTORE_PASSWORD: ${{ secrets.DP_KEYSTORE_PASSWORD }}
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
+      - name: Name the APK and show its signer
+        run: |
+          apk=$(ls app/build/outputs/apk/release/*.apk | head -1)
+          bt=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
+          "$bt/apksigner" verify --print-certs "$apk" | tee certs.txt
+          ver=$(sed -nE 's~ *versionName ?= ?"(.*)"~\1~p' app/build.gradle.kts)
+          mkdir -p out && cp "$apk" "out/dicio-plus-$ver.apk"
+          echo "APK: out/dicio-plus-$ver.apk, $(stat -c %s "$apk") bytes"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dicio-plus-apk
+          path: out/*.apk
