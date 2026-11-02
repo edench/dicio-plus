@@ -19,6 +19,7 @@ import org.stypox.dicio.settings.datastore.UserSettingsModule
 import org.stypox.dicio.settings.datastore.FallbackSkill
 import org.stypox.dicio.skills.calendar.CalendarInfo
 import org.stypox.dicio.skills.calculator.CalculatorInfo
+import org.stypox.dicio.skills.cancel.CancelInfo
 import org.stypox.dicio.skills.current_time.CurrentTimeInfo
 import org.stypox.dicio.skills.fallback.text.TextFallbackInfo
 import org.stypox.dicio.skills.listening.ListeningInfo
@@ -71,6 +72,11 @@ class SkillHandler @Inject constructor(
         CryptoPriceInfo,
     )
 
+    // Hidden skills that are always enabled but don't appear in menus
+    private val hiddenSkillInfoList = listOf(
+        CancelInfo,
+    )
+
     private val fallbackSkillInfoList = listOf(
         TextFallbackInfo,
         AIQueryInfo,
@@ -109,6 +115,11 @@ class SkillHandler @Inject constructor(
                     _skillRanker.value = SkillRanker(
                         newEnabledSkillsInfo.map { (_info, skill) -> skill },
                         fallbackSkillInfo.build(skillContext)!!,
+                        newEnabledSkillsInfo.map(::buildSkillFromInfo)
+                            + hiddenSkillInfoList
+                                .filter { it.isAvailable(skillContext) }
+                                .map(::buildSkillFromInfo),
+                        buildSkillFromInfo(fallbackSkillInfoList[0]),
                     )
                 }
         }
