@@ -48,6 +48,7 @@ Currently Dicio answers questions about:
 - **unit conversion**: convert currencies, distances, volumes, mass, and more - _Convert 5 liters to gallons_
 - **cryptocurrency prices**: get the latest price of Bitcoin, Ethereum, Cardano, and more - _What is the price of Bitcoin?_
 - **definitions**: get word definitions - _Define serendipity_
+- **locate phone**: Find your phone by calling for it and hearing it respond - _Where are you?_
 
 ## Speech to text
 

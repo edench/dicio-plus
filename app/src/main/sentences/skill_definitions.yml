@@ -207,3 +207,7 @@ skills:
         captures:
           - id: when
             type: date_time
+  - id: locate_phone
+    specificity: high
+    sentences:
+      - id: command

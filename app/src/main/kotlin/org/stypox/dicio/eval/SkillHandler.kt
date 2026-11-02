@@ -40,6 +40,7 @@ import org.stypox.dicio.skills.flashlight.FlashlightInfo
 import org.stypox.dicio.skills.aiquery.AIQueryInfo
 import org.stypox.dicio.skills.unit_conversion.UnitConversionInfo
 import org.stypox.dicio.skills.crypto_price.CryptoPriceInfo
+import org.stypox.dicio.skills.locate_phone.LocatePhoneInfo
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -77,6 +78,7 @@ class SkillHandler @Inject constructor(
     // Hidden skills that are always enabled but don't appear in menus
     private val hiddenSkillInfoList = listOf(
         CancelInfo,
+        LocatePhoneInfo
     )
 
     private val fallbackSkillInfoList = listOf(
