@@ -57,7 +57,7 @@ class CryptoPriceSkill(
                     )
                 }
 
-                // Fetch price from OKX API
+                // Fetch price from Coinbase
                 fetchCryptoPrice(ctx, crypto)
             }
         }
@@ -124,38 +124,18 @@ class CryptoPriceSkill(
 
     private fun fetchCryptoPrice(ctx: SkillContext, crypto: Cryptocurrency): CryptoPriceOutput {
         return try {
-            val url = "https://www.okx.com/api/v5/market/ticker?instId=${crypto.symbol}-USD"
+            // Coinbase public spot price (no key). Replaces OKX, which has PRC origins.
+            val url = "https://api.coinbase.com/v2/prices/${crypto.symbol}-USD/spot"
             val json = ConnectionUtils.getPageJson(url)
 
-            // Validate response structure
-            if (!json.has("code") || !json.has("data")) {
+            val data = json.optJSONObject("data")
+            if (data == null || !data.has("amount")) {
                 return CryptoPriceOutput.InvalidResponse(
                     errorMessage = ctx.android.getString(R.string.skill_crypto_price_invalid_response)
                 )
             }
 
-            val code = json.getString("code")
-            if (code != "0") {
-                return CryptoPriceOutput.InvalidResponse(
-                    errorMessage = ctx.android.getString(R.string.skill_crypto_price_invalid_response)
-                )
-            }
-
-            val dataArray = json.getJSONArray("data")
-            if (dataArray.length() == 0) {
-                return CryptoPriceOutput.InvalidResponse(
-                    errorMessage = ctx.android.getString(R.string.skill_crypto_price_invalid_response)
-                )
-            }
-
-            val tickerData = dataArray.getJSONObject(0)
-            if (!tickerData.has("last")) {
-                return CryptoPriceOutput.InvalidResponse(
-                    errorMessage = ctx.android.getString(R.string.skill_crypto_price_invalid_response)
-                )
-            }
-
-            val price = tickerData.getString("last")
+            val price = data.getString("amount")
             
             // Validate that price is a valid number
             try {
