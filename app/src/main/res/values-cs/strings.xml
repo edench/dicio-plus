@@ -275,4 +275,19 @@
     <string name="about_contributing_description">Dicio je vyvíjené dobrovolníky z celého světa. Můžete také pomoci vylepšením kódu, překládáním či přidáváním nových funkcí!</string>
     <string name="about_privacy_title">Ochrana soukromí</string>
     <string name="about_privacy_description">Dicio se připojuje k externím službám pouze v případě, že se to očekává od funkce, nebo ke stažení modelů strojového učení během prvotního nastavení. Veškeré zpracování zvuku probíhá lokálně na zařízení a většinu funkcí lze používat offline.</string>
+    <string name="skill_name_reminder">Připomínky (Tasks.org)</string>
+    <string name="skill_sentence_example_reminder">Připomeň mi zítra v 15 hodin koupit mléko</string>
+    <string name="skill_reminder_created">Úkol vytvořen: %1$s</string>
+    <string name="skill_reminder_created_with_date">Úkol vytvořen: %1$s, termín %2$s</string>
+    <string name="skill_reminder_no_task">Nepochytil jsem, co vám mám připomenout</string>
+    <string name="skill_reminder_tasks_not_installed">Tasks.org není nainstalován. Pro vytváření připomínek ho potřebujete.</string>
+    <string name="skill_reminder_install_tasks">Nainstalovat Tasks.org</string>
+    <string name="pref_reminder_default_priority">Výchozí priorita</string>
+    <string name="pref_reminder_priority_high">Vysoká</string>
+    <string name="pref_reminder_priority_medium">Střední</string>
+    <string name="pref_reminder_priority_low">Nízká</string>
+    <string name="pref_reminder_priority_none">Žádná</string>
+    <string name="pref_reminder_save_voice_input">Uložit původní hlasový vstup</string>
+    <string name="pref_reminder_save_voice_input_off">Hlasový vstup se neukládá</string>
+    <string name="pref_reminder_save_voice_input_on">Hlasový vstup se uloží jako popis úkolu</string>
 </resources>

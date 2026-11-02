@@ -270,4 +270,19 @@
     <string name="about_privacy_description">Dicio se connecte à des services externes uniquement lorsqu\'une compétence est censée le faire, ou pour télécharger des modèles d\'apprentissage automatique pendant la configuration. Tous les traitements de la parole sont effectués localement sur l\'appareil, et la plupart des compétences peuvent être utilisées hors ligne.</string>
     <string name="about_description">Un assistant vocal multilingue, exécuté en local et libre</string>
     <string name="about_contributing_description">Dicio est développé par des volontaires du monde entier. Vous pouvez aider aussi en contribuant à améliorer le code, en traduisant et même en ajoutant de nouvelles compétences !</string>
+    <string name="skill_name_reminder">Rappels (Tasks.org)</string>
+    <string name="skill_sentence_example_reminder">Rappelle-moi d\'acheter du lait demain à 15h</string>
+    <string name="skill_reminder_created">Tâche créée : %1$s</string>
+    <string name="skill_reminder_created_with_date">Tâche créée : %1$s, échéance %2$s</string>
+    <string name="skill_reminder_no_task">Je n\'ai pas compris ce dont vous voulez être rappelé</string>
+    <string name="skill_reminder_tasks_not_installed">Tasks.org n\'est pas installé. Il est nécessaire pour créer des rappels.</string>
+    <string name="skill_reminder_install_tasks">Installer Tasks.org</string>
+    <string name="pref_reminder_default_priority">Priorité par défaut</string>
+    <string name="pref_reminder_priority_high">Haute</string>
+    <string name="pref_reminder_priority_medium">Moyenne</string>
+    <string name="pref_reminder_priority_low">Basse</string>
+    <string name="pref_reminder_priority_none">Aucune</string>
+    <string name="pref_reminder_save_voice_input">Sauvegarder l\'entrée vocale originale</string>
+    <string name="pref_reminder_save_voice_input_off">L\'entrée vocale n\'est pas sauvegardée</string>
+    <string name="pref_reminder_save_voice_input_on">L\'entrée vocale est sauvegardée comme description de la tâche</string>
 </resources>

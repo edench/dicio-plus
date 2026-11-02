@@ -273,4 +273,19 @@
     <string name="about_privacy_title">Datenschutzregeln</string>
     <string name="about_privacy_description">Dicio verbindet sich nur mit externen Diensten, wenn es für die genutzte Funktion nötig ist oder um Ki-Modelle während der ersten Einrichtung herunterzuladen. Sämtlich Sprachverarbeitung geschieht lokal auf dem Gerät und die meisten Funktionen können offline genutzt werden.</string>
     <string name="pref_stt_silence_duration_title">Absolute Stille vor dem Sprechbeginn</string>
+    <string name="skill_name_reminder">Erinnerungen (Tasks.org)</string>
+    <string name="skill_sentence_example_reminder">Erinnere mich morgen um 15 Uhr Milch zu kaufen</string>
+    <string name="skill_reminder_created">Aufgabe erstellt: %1$s</string>
+    <string name="skill_reminder_created_with_date">Aufgabe erstellt: %1$s, fällig %2$s</string>
+    <string name="skill_reminder_no_task">Ich habe nicht verstanden, woran ich dich erinnern soll</string>
+    <string name="skill_reminder_tasks_not_installed">Tasks.org ist nicht installiert. Es wird zum Erstellen von Erinnerungen benötigt.</string>
+    <string name="skill_reminder_install_tasks">Tasks.org installieren</string>
+    <string name="pref_reminder_default_priority">Standardpriorität</string>
+    <string name="pref_reminder_priority_high">Hoch</string>
+    <string name="pref_reminder_priority_medium">Mittel</string>
+    <string name="pref_reminder_priority_low">Niedrig</string>
+    <string name="pref_reminder_priority_none">Keine</string>
+    <string name="pref_reminder_save_voice_input">Ursprüngliche Spracheingabe speichern</string>
+    <string name="pref_reminder_save_voice_input_off">Spracheingabe wird nicht gespeichert</string>
+    <string name="pref_reminder_save_voice_input_on">Spracheingabe wird als Aufgabenbeschreibung gespeichert</string>
 </resources>

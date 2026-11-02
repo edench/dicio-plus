@@ -29,6 +29,7 @@ import org.stypox.dicio.skills.media.MediaInfo
 import org.stypox.dicio.skills.navigation.NavigationInfo
 import org.stypox.dicio.skills.notify.NotifyInfo
 import org.stypox.dicio.skills.open.OpenInfo
+import org.stypox.dicio.skills.reminder.ReminderInfo
 import org.stypox.dicio.skills.search.SearchInfo
 import org.stypox.dicio.skills.sms.SmsInfo
 import org.stypox.dicio.skills.telephone.TelephoneInfo
@@ -68,6 +69,7 @@ class SkillHandler @Inject constructor(
         JokeInfo,
         ListeningInfo(dataStore),
         TranslationInfo,
+        ReminderInfo,
         NotifyInfo,
         FlashlightInfo,
         AIQueryInfo,
