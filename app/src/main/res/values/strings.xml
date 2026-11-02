@@ -198,6 +198,8 @@
     <string name="skill_sentence_example_timer">Set a timer for five minutes</string>
     <string name="skill_name_current_time">Current time</string>
     <string name="skill_sentence_example_current_time">What time is it?</string>
+    <string name="skill_name_random">Random</string>
+    <string name="skill_sentence_example_random">Roll a 20-sided die</string>
     <string name="skill_fallback_name_text">Text message</string>
     <string name="skill_search_here_is_what_i_found">Here is what I found</string>
     <string name="skill_search_no_results">The search returned no results, try telling me again what you want to search for</string>
@@ -387,4 +389,13 @@
     <string name="skill_crypto_price_unknown_crypto">Unknown cryptocurrency: %1$s</string>
     <string name="skill_crypto_price_network_error">Could not connect to the crypto price service. Please check your internet connection.</string>
     <string name="skill_crypto_price_invalid_response">Failed to get valid price data from the service.</string>
+    <string name="skill_random_coin_flip">The coin landed on %1$s</string>
+    <string name="skill_random_dice_roll">You rolled a %1$d on a %2$d-sided die</string>
+    <string name="skill_random_dice_roll_multiple">You rolled %1$d total on %2$d %3$d-sided dice</string>
+    <string name="skill_random_dice_sides">%1$d-sided die</string>
+    <string name="skill_random_random_number">Your random number is %1$d</string>
+    <string name="skill_random_range">Range: %1$d to %2$d</string>
+    <string name="skill_random_invalid_range">Invalid range, please specify valid numbers</string>
+    <string name="skill_random_heads">heads</string>
+    <string name="skill_random_tails">tails</string>
 </resources>
