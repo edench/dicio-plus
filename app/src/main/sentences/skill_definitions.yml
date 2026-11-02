@@ -243,3 +243,12 @@ skills:
         captures:
           - id: flight
             type: string
+
+  - id: alarm
+    specificity: high
+    sentences:
+      - id: set
+        captures:
+          - id: time
+            type: string
+      - id: show

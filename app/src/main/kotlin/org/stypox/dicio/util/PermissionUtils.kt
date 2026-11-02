@@ -34,6 +34,10 @@ val PERMISSION_READ_CALENDAR = Permission.NormalPermission(
     name = R.string.perm_read_calendar,
     id = Manifest.permission.READ_CALENDAR,
 )
+val PERMISSION_SET_ALARM = Permission.NormalPermission(
+    name = R.string.perm_set_alarm,
+    id = "com.android.alarm.permission.SET_ALARM",
+)
 
 val PERMISSION_NOTIFICATION_LISTENER = Permission.SecurePermission(
     name = R.string.perm_notification_listener,

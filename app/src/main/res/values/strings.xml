@@ -407,4 +407,12 @@
     <string name="skill_flight_not_understood">I did not catch a flight number in %1$s</string>
     <string name="skill_flight_not_found">I could not find flight %1$s</string>
     <string name="skill_flight_network_error">Could not reach the flight data service</string>
+    <string name="perm_set_alarm">set alarms</string>
+    <string name="skill_name_alarm">Alarm</string>
+    <string name="skill_sentence_example_alarm">Set an alarm for seven thirty AM</string>
+    <string name="skill_alarm_what_time">What time should the alarm be set for?</string>
+    <string name="skill_alarm_graphical_set">Alarm set for %1$s</string>
+    <string name="skill_alarm_set">OK, the alarm is set for %1$s</string>
+    <string name="skill_alarm_no_clock_app">No clock app found to set the alarm</string>
+    <string name="skill_alarm_opening_clock_app">Opening the clock app</string>
 </resources>
